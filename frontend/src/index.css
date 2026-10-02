@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+
+
+@font-face {
+  font-family:inter-Thin;
+  src: url(../public/fonts/inter-Thin.ttf);
+}
+@font-face {
+  font-family: interBold;
+  src: url(../public/fonts/OpenSans_Condensed-Bold.ttf);
+}
+
+
+@font-face {
+  font-family:Shabnam-Bold;
+  src: url(../public/fonts/Shabnam-Bold.ttf);
+}
+@font-face {
+  font-family:Shabnam-Light;
+  src: url(../public/fonts/Shabnam-Light.ttf);
+}
+
+@theme{
+  --color-Primary: #003366;
+  --color-Secondary: #00C8FF;
+  --color-Accent: #00C8FF;
+  --color-Background:#F8FAFC;
+  --color-Surface:#FFFFFF;
+  --color-Text: #0F172A;
+  --color-Muted: #64748B;
+  --color-Border: #E2E8F0;
+  --card-radius:12px;
+  --Inputs: 8px;
+  --Badges: 999px;
+  --font-inter-Thin:inter-Thin;
+  --font-interBold:interBold;
+  --font-ShabnamLight:Shabnam-Light;
+  --font-ShabnamBold:Shabnam-Bold;
+}
+
+/* https://www.google.com/search?q=%D8%B3%D8%A7%D8%AE%D8%AA+%DB%8C%DA%A9+%D9%84%D9%88%DB%8C%D9%88%D8%AA+%D8%AF%D8%B1+%D8%B1%DB%8C+%D8%A7%DA%A9%D8%AA&rlz=1C1GCEA_enAF1152AF1152&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDg4ODhqMGo0qAIAsAIA&sourceid=chrome&ie=UTF-8&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cxpBkeIeqYwoCbfNVc4vKE7plZzta63Pe5DpJ3XFR9Xy5hkFmhg6pfO_X-sED2CqEPUthmbw9rF1K5CsYeTEZzN9NSsDAWOubVy0mhijSapg0mTJJNgDpoY788e_tDhOkwQBWPFUfLWtybNyrIbjPNbQekOw&aep=10&ntc=1&sxsrf=APpeQnu7liACE6noVX436nBjxNfHGEfCTg%3A1788279445215&mstk=AUtExfCle3bUwKkvQl_HtQmFMkbFpuxLlR2mKQ4qdNzW_1xMyDNYzj_Q4vMhjEYJVcplqS5hD-xo5dGdqoQSPpeGvTVwLOAOS5iY339v7erPDBH7CbUNtAw6cv2_xiiVipxAY938zuJdLQqffmvjJVKKLcfha6-rMQfXA-iyCainiPaQnmDHa0Ll0hN3TSuKnYIYPy8KGHtFUjeMJZzVk5BEzq0lFcxJp-D5qrumkd45YPFsXkbnhtnCquWrMnB-7OCR2hSe9xQWyj-EXP8ESTPPccjqUFs3pjVLq7ZV82YSXcDAvt1Xbo8nJpvjk-Spca0cEHF84OM-GLeDgorJuCFyLLkOfnM8RJhuPSzBjQYhoXvSDOP85jO7DQ0&aioh=3&csuir=1&cs=0&atvm=2&mtid=z_6WaqagBMuH9u8P34KggQc&udm=50 */
+
+
+.box{
+  justify-content: space-between;
+  object-fit: contain;
+  
+}
