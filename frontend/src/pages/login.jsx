@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +18,7 @@ function Login() {
       password: password,
     };
 
-    fetch("http://127.0.0.1:8000/api/login/", {
+    fetch(`${API_URL}/api/login/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", 
