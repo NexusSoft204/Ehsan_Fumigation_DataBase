@@ -4,7 +4,7 @@ import Barcode from 'react-barcode';
 import { QRCodeSVG } from 'qrcode.react';
 import axios from 'axios';
 
-
+const API_URL = import.meta.env.VITE_API_URL
 
 const getCookie = (name) => {
   const value = `; ${document.cookie}`;
@@ -39,7 +39,7 @@ function CertificateDetails() {
         */
        const token = getCookie("token");
         const response = await axios.get(
-            `http://127.0.0.1:8000/api/certificates/${id}/`,
+            `${API_URL}/api/certificates/${id}/`,
             {
               headers: {
                 Authorization: `Token ${token}`,

@@ -8,7 +8,7 @@ function AllCompanies() {
   const [statusFilter, setStatusFilter] = useState(''); // فیلتر وضعیت
 
   
-  const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+  const API_URL = import.meta.env.VITE_API_URL
 
   // ۱. گرفتن لیست شرکت‌ها از بک‌آند در هنگام لود صفحه
   useEffect(() => {

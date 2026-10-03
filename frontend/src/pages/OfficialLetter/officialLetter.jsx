@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'; // اضافه شدن useRef
+import React, { useState, useEffect, useRef } from 'react'; 
 import { QRCodeSVG } from 'qrcode.react';
 import { useParams } from 'react-router-dom';
-import html2pdf from "html2pdf.js"; // ایمپورت کتابخانه دانلود پی‌دی‌اف
+import html2pdf from "html2pdf.js";
+const API_URL = import.meta.env.VITE_API_URL
+
 
 const OfficialLetter = () => {
   const { tracking_id } = useParams();
@@ -12,7 +14,7 @@ const OfficialLetter = () => {
 
   // دریافت اطلاعات مکتوب از API جنگو
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/letters/${tracking_id}/`)
+    fetch(`${API_URL}/api/letters/${tracking_id}/`)
       .then(res => res.json())
       .then(data => setLetterData(data))
       .catch(err => console.error("خطا در دریافت اطلاعات:", err));
@@ -46,12 +48,6 @@ const OfficialLetter = () => {
       
       {/* منوی دکمه‌ها (در هنگام پرینت یا دانلود غیب می‌شود) */}
       <div className="max-w-[210mm] mx-auto mb-4 print:hidden flex justify-between items-center px-4">
-        <button 
-          onClick={() => window.print()} 
-          className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded shadow transition-colors"
-        >
-          Print Document
-        </button>
         
         {/* دکمه جدید برای دانلود PDF */}
         <button 
@@ -108,10 +104,10 @@ const OfficialLetter = () => {
         </div>
 
         {/* ۴. زون قرارگیری بارکد (دقیقاً روی کادر زرد رنگ وسط پابرگ) */}
-        <div className="absolute bottom-[10mm] left-1/2 -translate-x-1/2 w-[28mm] h-[28mm] bg-white flex items-center justify-center p-1 rounded">
+        <div className="absolute bottom-[10mm] left-[43%] w-[28mm] h-[28mm] bg-white p-1 ">
           <QRCodeSVG 
-            value={letterData.qr_url} 
-            size={80}
+            value={`${FRONTEND_URL}/OfficialLetter/verify/${tracking_id}`} 
+            size={90}
             level={"H"} 
             includeMargin={false}
           />

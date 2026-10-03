@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_API_URL
 
 function AddCompany() {
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ function AddCompany() {
   };
 
   try {
-    const response = await axios.post('http://127.0.0.1:8000/api/companies/', payload);
+    const response = await axios.post(`${API_URL}/api/companies/`, payload);
     
     if (response.status === 201) {
       console.log('ثبت نام موفقیت‌آمیز بود:', response.data);

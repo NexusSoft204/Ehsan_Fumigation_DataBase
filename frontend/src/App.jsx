@@ -26,6 +26,7 @@ import VerifyCertificate from './pages/Certificates/VerifyCertificate';
 // OfficialLetter بخش صفحه مکتوب ها
 import OfficialLetter from './pages/OfficialLetter/officialLetter';
 import LetterForm from './pages/OfficialLetter/LetterForm';
+import Verify_offical_letter from './pages/OfficialLetter/verify-offical-letter';
 
 
 
@@ -67,6 +68,7 @@ function App() {
         {/* Main page */}
           <Route path="/" element={<Login />} />
           <Route path="/certificates/verify/:id" element={<VerifyCertificate />} />
+          <Route path='/OfficialLetter/verify/:tracking_id' element={<Verify_offical_letter />} />
         <Route element={<Layout />}>
           
           {/* مسیر صفحه اصلی */}

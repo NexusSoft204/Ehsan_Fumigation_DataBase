@@ -9,7 +9,7 @@ function CompanyDetails() {
   const [loading, setLoading] = useState(true);
 
   // آدرس پایه API هماهنگ با سیستم Vite
-  const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+  const API_URL = import.meta.env.VITE_API_URL
 
   useEffect(() => {
     const fetchCompanyDetails = async () => {

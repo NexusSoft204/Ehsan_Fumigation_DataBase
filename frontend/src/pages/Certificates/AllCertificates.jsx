@@ -15,9 +15,7 @@ const getCookie = (name) => {
 };
 
 function AllCertificates() {
-  const API_URL =
-    import.meta.env.VITE_API_URL ||
-    "http://127.0.0.1:8000";
+  const API_URL = import.meta.env.VITE_API_URL
 
   const [certificates, setCertificates] = useState([]);
   const [loading, setLoading] = useState(true);

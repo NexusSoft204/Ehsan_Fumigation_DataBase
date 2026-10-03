@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL
 
 const LetterForm = ({ onLetterCreated }) => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const LetterForm = ({ onLetterCreated }) => {
     setError('');
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/letters/create/', {
+      const response = await fetch(`${API_URL}/api/letters/create/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,13 +53,13 @@ const LetterForm = ({ onLetterCreated }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans" dir="rtl">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
+      <div className="w-full bg-white shadow-xl border border-gray-100 overflow-hidden" dir='rtl'>
         
         {/* هدر فرم */}
         <div className="bg-gradient-to-r from-emerald-700 to-green-600 p-6 text-white text-center">
-          <h2 className="text-2xl font-bold mb-1">سیستم صدور مکتوبات رسمی</h2>
-          <p className="text-sm text-green-100">شرکت تجارتی احسان صبور</p>
+          <h2 className="text-2xl font-bold mb-1 font-ShabnamBold">سیستم صدور مکتوبات رسمی</h2>
+          <p className="text-sm text-green-100 font-ShabnamLight">شرکت تجارتی احسان صبور</p>
         </div>
 
         {/* بدنه فرم */}
@@ -74,28 +75,28 @@ const LetterForm = ({ onLetterCreated }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* سازمان مقصد */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">ارسال به (سازمان مقصد):</label>
+              <label className="block text-sm  font-ShabnamBold text-gray-700 mb-2">ارسال به (سازمان مقصد):</label>
               <input
                 type="text"
                 name="destination"
                 value={formData.destination}
                 onChange={handleChange}
                 placeholder="مثال: وزارت مالیه، آمریت صحت عامه"
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder-gray-400"
+                className="w-full px-4 py-3 rounded-xl font-ShabnamLight border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder-gray-400"
                 required
               />
             </div>
 
             {/* موضوع مکتوب */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">موضوع مکتوب:</label>
+              <label className="block text-sm font-ShabnamBold text-gray-700 mb-2">موضوع مکتوب:</label>
               <input
                 type="text"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="مثال: درخواست ضدعفونی و کنترل آفات هرات"
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder-gray-400"
+                className="w-full px-4 py-3 font-ShabnamLight rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder-gray-400"
                 required
               />
             </div>
@@ -103,14 +104,14 @@ const LetterForm = ({ onLetterCreated }) => {
 
           {/* متن اصلی مکتوب */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">متن مکتوب:</label>
+            <label className="block text-sm font-ShabnamBold text-gray-700 mb-2">متن مکتوب:</label>
             <textarea
               name="content"
               value={formData.content}
               onChange={handleChange}
               rows="8"
               placeholder="متن رسمی مکتوب خود را در این قسمت به صورت دقیق وارد نمایید..."
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm leading-relaxed placeholder-gray-400 resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm font-ShabnamLight leading-relaxed placeholder-gray-400 resize-none"
               required
             ></textarea>
           </div>
@@ -120,7 +121,7 @@ const LetterForm = ({ onLetterCreated }) => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 px-6 text-white font-bold rounded-xl transition-all transform active:scale-[0.98] shadow-lg ${
+              className={`w-full py-3 px-6 text-white font-bold rounded-xl transition-all transform active:scale-[0.98] shadow-lg font-interBold ${
                 loading 
                   ? 'bg-gray-400 cursor-not-allowed' 
                   : 'bg-emerald-600 hover:bg-emerald-700 hover:shadow-emerald-200'
