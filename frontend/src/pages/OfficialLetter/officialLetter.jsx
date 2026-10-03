@@ -3,6 +3,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import { useParams } from 'react-router-dom';
 import html2pdf from "html2pdf.js";
 const API_URL = import.meta.env.VITE_API_URL
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
 
 const OfficialLetter = () => {
