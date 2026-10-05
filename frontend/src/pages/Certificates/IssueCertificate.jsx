@@ -119,9 +119,9 @@ function IssueCertificate() {
     ===================================================== */
 
     address: "Herat, Afghanistan",
-    contacts: "+93 (0) 700 308 452 / +93 (0) 706 855 866",
-    email: "fumigation@eshsansaboor.af",
-    website: "www.ehsansaboor.af",
+    contacts: "+93 (0) 707809003 / +93 (0) 706 855 866",
+    email: " info@ehsansaboorltd.com",
+    website: "www.ehsansaboorltd.com",
   });
 
   /* =====================================================
