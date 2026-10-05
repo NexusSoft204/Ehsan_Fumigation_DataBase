@@ -27,6 +27,7 @@ import VerifyCertificate from './pages/Certificates/VerifyCertificate';
 import OfficialLetter from './pages/OfficialLetter/officialLetter';
 import LetterForm from './pages/OfficialLetter/LetterForm';
 import Verify_offical_letter from './pages/OfficialLetter/verify-offical-letter';
+import AllofficalLetter from './pages/OfficialLetter/allofficalLetter';
 
 
 
@@ -88,6 +89,7 @@ function App() {
           {/* بخش مکتوب ها */}
           <Route path='/official-letter/:tracking_id' element={<OfficialLetter />} />
           <Route path='/OfficialLetter/letterform' element={<LetterForm />} />
+          <Route path='/OfficialLetter/all-official-letter' element={<AllofficalLetter />} />
 
 
           {/* مسیرهای بخش Employees */}

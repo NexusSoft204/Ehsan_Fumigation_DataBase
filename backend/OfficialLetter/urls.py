@@ -1,6 +1,7 @@
 # your_app_name/urls.py
 from django.urls import path
 from . import views
+from .views import AllofficalLetterListApi
 
 urlpatterns = [
     # آدرس ثبت مکتوب جدید
@@ -8,4 +9,5 @@ urlpatterns = [
     
     # آدرس نمایش جزئیات مکتوب بر اساس شناسه (که در مرحله اول ساخته بودیم)
     path('<uuid:tracking_id>/', views.get_letter_detail, name='letter_detail'),
+    path('allofficalLetter/', AllofficalLetterListApi.as_view()),
 ]

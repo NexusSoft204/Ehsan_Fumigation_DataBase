@@ -40,3 +40,11 @@ def get_letter_detail(request, tracking_id):
         return Response(response_data, status=status.HTTP_200_OK)
     except OfficialLetter.DoesNotExist:
         return Response({"error": "مکتوب مورد نظر یافت نشد."}, status=status.HTTP_404_NOT_FOUND)
+
+
+
+
+from rest_framework.generics import ListAPIView
+class AllofficalLetterListApi(ListAPIView):
+    queryset = OfficialLetter.objects.all()
+    serializer_class = OfficialLetterSerializer

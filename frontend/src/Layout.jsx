@@ -101,6 +101,7 @@ function Layout() {
               {/* منوی OfficalLetter */}
               <SidebarItem title="OfficalLetter">
                 <Link to="/OfficialLetter/letterform" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">Create OfficalLetter</Link>
+                <Link to="/OfficialLetter/all-official-letter" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">All-OfficalLetter</Link>
               </SidebarItem>
 
               {/* منوی Employees */}
