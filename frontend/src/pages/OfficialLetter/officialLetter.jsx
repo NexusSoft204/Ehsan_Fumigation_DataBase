@@ -75,23 +75,40 @@ const OfficialLetter = () => {
         <div className="absolute top-[65mm] bottom-[48mm] left-[20mm] right-[20mm] flex flex-col font-sans">
           
           {/* مشخصات مکتوب */}
-          <div className="flex flex-wrap mt-10 items-center text-sm mb-8 text-gray-700 border-b pb-2">
-            <div className='w-full'>
-                <strong className='font-bold font-ShabnamBold'>تاریخ:</strong>
+          <div className="flex flex-wrap mt-10 items-center text-sm  text-gray-700 border-b pb-2">
+
+
+            {/* //////  نمبر مسلسل ////  */}
+            <div className='w-full font-ShabnamBold'>
+              <strong>نمبر مسلسل / پرله پسې شمېره :</strong>
+              <span>00{letterData.id}</span>
+            </div>
+
+            {/* /////////// Date /////////////////  */}
+            <div className='w-full mt-5'>
+                <strong className='font-bold font-ShabnamBold'>تاریخ / نټه : </strong>
                  {letterData.created_at}
             </div>
+
+
+            {/* //////////// Title //////////////  */}
             <div className='w-full my-6'>
-                <strong className='font-bold font-ShabnamBold'>موضوع:</strong> 
-                <p className='font-ShabnamLight'>{letterData.subject}</p>
+                <strong className='font-bold font-ShabnamBold'>عنوان / سرلیک :</strong> 
+                <p className='font-ShabnamLight mt-2'>{letterData.subject}</p>
             </div>
+
+
+
+              {/* گرینده  */}
             <div className='w-full'>
-                <strong className='font-bold font-ShabnamBold'>به:</strong> 
-                <p className='font-ShabnamLight'>{letterData.destination}</p>
+                <strong className='font-bold font-ShabnamBold'>ارگان دریافت کننده / ترلاسه کوونکی :</strong> 
+                <p className='font-ShabnamLight mt-2'>{letterData.destination}</p>
             </div>
           </div>
 
           {/* متن اصلی مکتوب */}
           <div className="text-justify text-base leading-loose text-gray-900 whitespace-pre-line px-2">
+            <strong className='font-bold font-ShabnamBold'>توضیحات  / زموږ په اړه : </strong> 
             <p className='font-ShabnamLight'>
                 {letterData.content}
             </p>

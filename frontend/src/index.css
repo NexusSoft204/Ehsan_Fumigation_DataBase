@@ -14,12 +14,14 @@
 
 @font-face {
   font-family:Shabnam-Bold;
-  src: url(../public/fonts/Shabnam-Bold.ttf);
+  src: url(../public/fonts/calibri-bold.ttf);
 }
 @font-face {
   font-family:Shabnam-Light;
-  src: url(../public/fonts/Shabnam-Light.ttf);
+  src: url(../public/fonts/calibri-regular.ttf);
 }
+
+
 
 @theme{
   --color-Primary: #003366;

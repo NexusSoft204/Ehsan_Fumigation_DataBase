@@ -4,5 +4,5 @@ from .models import OfficialLetter
 class OfficialLetterSerializer(serializers.ModelSerializer):
     class Meta:
         model = OfficialLetter
-        fields = ['tracking_id', 'destination', 'subject', 'content', 'created_at']
+        fields = ['id','tracking_id', 'destination', 'subject', 'content', 'created_at']
         read_only_fields = ['tracking_id', 'created_at']
