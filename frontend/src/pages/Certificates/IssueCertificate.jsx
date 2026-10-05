@@ -24,7 +24,7 @@ function IssueCertificate() {
        CERTIFICATE INFORMATION
     ===================================================== */
 
-    certificateNumber: "KFPC-MB-HRT-0643 2026-09-05",
+    certificateNumber: "ESFC-MB-HRT-0643 2026-09-05",
     issueDate: "2026-09-05",
     phytosanitaryNo: "",
     registrationNo: "005-022-11",
@@ -360,10 +360,10 @@ function IssueCertificate() {
             LEFT EDITOR
         ================================================= */}
 
-        <div className="editor-panel no-print">
+        <div className="editor-panel no-print w-full">
 
           <h3>Live Editor</h3>
-
+ 
           {/* COMPANY */}
 
           <div className="editor-group">
@@ -655,7 +655,7 @@ function IssueCertificate() {
             CERTIFICATE
         ================================================= */}
 
-        <div className="preview-wrapper">
+        <div className="preview-wrapper w-full">
 
           <div
             ref={printAreaRef}
@@ -666,7 +666,7 @@ function IssueCertificate() {
                 HEADER
             ============================================ */}
 
-            <div className="certificate-header">
+            <div className="certificate-header mb-3">
 
               <div className="logo-wrapper">
 

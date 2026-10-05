@@ -68,7 +68,7 @@ const AllofficalLetter = () => {
   );
 };
 
-// استایل‌های ساده و شیک داخلی (Inline Styles) برای ظاهر بهتر کامپوننت
+
 const styles = {
   container: {
     fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
