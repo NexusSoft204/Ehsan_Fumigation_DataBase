@@ -17,7 +17,7 @@ function IssueCertificate() {
 
   const VERIFY_URL =
   import.meta.env.VITE_CERTIFICATE_VERIFY_URL ||
-  `${window.location.origin}/certificates/verify/`;
+  `${window.location.origin}/certificates/verify`;
 
   const [formData, setFormData] = useState({
     /* =====================================================
@@ -1228,9 +1228,7 @@ function IssueCertificate() {
               <div className="qr-column">
 
                 <QRCodeSVG
-                    value={`${VERIFY_URL}?certificate=${encodeURIComponent(
-                      formData.certificateNumber
-                    )}`}
+                    value={`${VERIFY_URL}/${encodeURIComponent(formData.certificateNumber)}/`}
                     size={92}
                     level="M"
                     includeMargin={false}
