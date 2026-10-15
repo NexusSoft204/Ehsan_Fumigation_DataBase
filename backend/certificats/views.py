@@ -24,40 +24,26 @@ from .serializers import CertificateSerializer
 
 
 class VerifyCertificateView(APIView):
-
     authentication_classes = []
     permission_classes = [AllowAny]
 
-    def get(self, request):
-
-        certificate_number = request.query_params.get(
-            "certificate"
-        )
-
+    def get(self, request, certificate_number=None):
         if not certificate_number:
             return Response(
-                {
-                    "detail": "Certificate number is required."
-                },
+                {"detail": "Certificate number is required."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
         try:
+            # تغییر کلیدی: نام فیلد دیتابیس شما certificateNumber است
             certificate = Certificate.objects.get(
-                certificate_number=certificate_number
+                certificateNumber=certificate_number
             )
-
         except Certificate.DoesNotExist:
             return Response(
-                {
-                    "detail": "Certificate not found."
-                },
+                {"detail": "Certificate not found."},
                 status=status.HTTP_404_NOT_FOUND
             )
 
         serializer = CertificateSerializer(certificate)
-
-        return Response(
-            serializer.data,
-            status=status.HTTP_200_OK
-        )
+        return Response(serializer.data, status=status.HTTP_200_OK)

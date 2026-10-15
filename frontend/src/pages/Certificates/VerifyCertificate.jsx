@@ -9,32 +9,29 @@ function VerifyCertificate() {
   const API_URL =
     import.meta.env.VITE_API_URL
 
-  useEffect(() => {
+   useEffect(() => {
     const verifyCertificate = async () => {
       try {
         setLoading(true);
         setError("");
 
-        const params = new URLSearchParams(
-          window.location.search
-        );
+        // ۱. استخراج شناسه از انتهای آدرس مرورگر (جایگزین کردن روش قدیمی params.get)
+        const pathSegments = window.location.pathname.split('/');
+        // حذف سگمنت‌های خالی احتمالی در ابتدا و انتهای آدرس
+        const filteredSegments = pathSegments.filter(segment => segment !== "");
+        const certificateNumber = filteredSegments[filteredSegments.length - 1];
 
-        const certificateNumber =
-          params.get("certificate");
-
-        if (!certificateNumber) {
+        if (!certificateNumber || certificateNumber === 'verify') {
           setError("Certificate number was not provided.");
           setLoading(false);
           return;
         }
 
+        // ۲. ارسال درخواست با ساختار جدید آدرس بک‌اند (Path Parameter)
+        // مقدار به صورت مستقیم در آدرس قرار می‌گیرد و دیگر نیازی به بخش params: {} در اکسیاس نیست
+        const decodedNumber = decodeURIComponent(certificateNumber);
         const response = await axios.get(
-          `${API_URL}/api/certificates/verify/`,
-          {
-            params: {
-              certificate: certificateNumber,
-            },
-          }
+          `${API_URL}/api/certificates/verify/${decodedNumber}/`
         );
 
         setCertificate(response.data);
