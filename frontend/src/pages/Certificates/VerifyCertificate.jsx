@@ -28,7 +28,7 @@ function VerifyCertificate() {
         // ۲. رمزگشایی کاراکترهای خاص مثل %20 (فاصله)
         const decodedNumber = decodeURIComponent(certificateNumber);
 
-        // ۳. ارسال درخواست به بک‌آند آنلاین یا لوکال
+        // ۳. ارسال درخواست به بک‌آند آنلاین یا لوکا
         const response = await axios.get(
           `${API_URL}/api/certificates/verify/${decodedNumber}/`
         );

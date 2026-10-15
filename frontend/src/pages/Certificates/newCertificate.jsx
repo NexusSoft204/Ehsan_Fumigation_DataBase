@@ -1228,7 +1228,7 @@ function IssueCertificate() {
               <div className="qr-column">
 
                 <QRCodeSVG
-                    value={`${VERIFY_URL}/${encodeURIComponent(formData.certificateNumber)}/`}
+                    value={`${VERIFY_URL.replace(/\/$/, '')}/${encodeURIComponent(formData.certificateNumber.trim())}/`}
                     size={92}
                     level="M"
                     includeMargin={false}
