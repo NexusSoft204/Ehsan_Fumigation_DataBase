@@ -9,17 +9,15 @@ function VerifyCertificate() {
   const API_URL =
     import.meta.env.VITE_API_URL
 
-   useEffect(() => {
+    useEffect(() => {
     const verifyCertificate = async () => {
       try {
         setLoading(true);
         setError("");
 
-        // ۱. استخراج شناسه از انتهای آدرس مرورگر (جایگزین کردن روش قدیمی params.get)
-        const pathSegments = window.location.pathname.split('/');
-        // حذف سگمنت‌های خالی احتمالی در ابتدا و انتهای آدرس
-        const filteredSegments = pathSegments.filter(segment => segment !== "");
-        const certificateNumber = filteredSegments[filteredSegments.length - 1];
+        // ۱. استخراج دقیق شماره گواهی بدون وابستگی به اسلش آخر آدرس
+        const pathname = window.location.pathname;
+        const certificateNumber = pathname.substring(pathname.lastIndexOf('/') + 1);
 
         if (!certificateNumber || certificateNumber === 'verify') {
           setError("Certificate number was not provided.");
@@ -27,9 +25,10 @@ function VerifyCertificate() {
           return;
         }
 
-        // ۲. ارسال درخواست با ساختار جدید آدرس بک‌اند (Path Parameter)
-        // مقدار به صورت مستقیم در آدرس قرار می‌گیرد و دیگر نیازی به بخش params: {} در اکسیاس نیست
+        // ۲. رمزگشایی کاراکترهای خاص مثل %20 (فاصله)
         const decodedNumber = decodeURIComponent(certificateNumber);
+
+        // ۳. ارسال درخواست به بک‌آند آنلاین یا لوکال
         const response = await axios.get(
           `${API_URL}/api/certificates/verify/${decodedNumber}/`
         );
@@ -37,19 +36,12 @@ function VerifyCertificate() {
         setCertificate(response.data);
 
       } catch (error) {
-        console.error(
-          "Certificate verification error:",
-          error
-        );
+        console.error("Certificate verification error:", error);
 
         if (error.response?.status === 404) {
-          setError(
-            "This certificate could not be found."
-          );
+          setError("This certificate could not be found.");
         } else {
-          setError(
-            "Unable to verify this certificate."
-          );
+          setError("Unable to verify this certificate.");
         }
       } finally {
         setLoading(false);
@@ -58,6 +50,7 @@ function VerifyCertificate() {
 
     verifyCertificate();
   }, [API_URL]);
+
 
   if (loading) {
     return (
