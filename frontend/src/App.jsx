@@ -17,7 +17,7 @@ import EditCompany from './pages/Companies/edit';
 
 // ۴. وارد کردن صفحات مربوط به بخش Certificates
 import AllCertificates from './pages/Certificates/AllCertificates';
-import IssueCertificate from './pages/Certificates/IssueCertificate';
+import IssueCertificate from './pages/Certificates/newCertificate';
 import CertificateDetails from './pages/Certificates/CertificateDetails';
 import VerifyCertificate from './pages/Certificates/VerifyCertificate';
 

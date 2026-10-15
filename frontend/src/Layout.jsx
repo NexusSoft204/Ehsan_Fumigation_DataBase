@@ -93,7 +93,7 @@ function Layout() {
               {/* منوی Certificates */}
               <SidebarItem title="Certificates">
                 <Link to="/certificates" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">All Certificates</Link>
-                <Link to="/certificates/issue" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">Issue Certificate</Link>
+                <Link to="/certificates/issue" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">New Certificate</Link>
                 {/* <Link to="/certificates/details" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">Certificate Details</Link> */}
                 {/* <Link to="/certificates/verify" className="block px-3 py-1.5 text-sm text-slate-400 hover:text-[#00C8FF]">Verify Certificate</Link> */}
               </SidebarItem>

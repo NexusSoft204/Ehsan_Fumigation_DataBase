@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'; 
 import { QRCodeSVG } from 'qrcode.react';
 import { useParams } from 'react-router-dom';
-import html2pdf from "html2pdf.js";
+import html2pdf from "html2pdf.js/dist/html2pdf.min.js";
 const API_URL = import.meta.env.VITE_API_URL
 const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
@@ -67,57 +67,63 @@ const OfficialLetter = () => {
       >
         
         {/* ۱. تصویر سربرگ شرکت احسان صبور */}
-        <div className="absolute top-0 left-0 w-full">
-          <img src="/images/1.png" alt="Header" className="w-full object-contain" />
+        <div className="absolute top-0 left-0 w-full h-60">
+          <img src="/images/1.png" alt="Header" className="w-full h-full object-cover" />
         </div>
 
         {/* ۲. محتوای مکتوب (با فاصله ایمن از سربرگ و پابرگ) */}
-        <div className="absolute top-[65mm] bottom-[48mm] left-[20mm] right-[20mm] flex flex-col font-sans">
-          
+        <div className="absolute top-[65mm] bottom-[48mm] left-[20mm] right-[20mm] flex flex-col z-10">
+          <p className='text-center text-[19px] font-Bolbody'>بسـم الله الــرحمـن الـرحیـم</p>
+          <h2 className='font-bold text-[19px] text-center mt-8'>د افغانستان اسلامی امارت ټولو محترمو دولتو ، خصوصي ادارو او شرکتونه ته!</h2>
+          <p className='text-center font-Bolbody text-[19px]'>السلام علیکم ورحمت الله و برکاته،</p>
           {/* مشخصات مکتوب */}
-          <div className="flex flex-wrap mt-10 items-center text-sm  text-gray-700 border-b pb-2">
+          <div className="flex flex-wrap mt-4 items-center text-sm  text-gray-700 pb-2">
 
 
-            {/* //////  نمبر مسلسل ////  */}
-            <div className='w-full font-ShabnamBold'>
-              <strong>نمبر مسلسل / پرله پسې شمېره :</strong>
-              <span>00{letterData.id}</span>
-            </div>
+
+          {/* //////////// Title //////////////  */}
+            <div className='w-full mt-2 flex items-center'>
+                <strong className='font-bold font-Bolbody text-[19px]'>موضوع: </strong> 
+                <p className='font-Bolbody mr-2 text-[16px]'>{letterData.subject}</p>
+          </div>
+
+
 
             {/* /////////// Date /////////////////  */}
-            <div className='w-full mt-5'>
-                <strong className='font-bold font-ShabnamBold'>تاریخ / نټه : </strong>
-                 {letterData.created_at}
+            <div className='w-full'>
+                <strong className='font-bold font-Bolbody text-[16px]'>تاریخ / نټه : </strong>
+                 <span className='text-[16px]'>
+                  {new Date(letterData.created_at).toLocaleDateString('fa-IR')}
+                 </span>
             </div>
 
 
-            {/* //////////// Title //////////////  */}
-            <div className='w-full my-6'>
-                <strong className='font-bold font-ShabnamBold'>عنوان / سرلیک :</strong> 
-                <p className='font-ShabnamLight mt-2'>{letterData.subject}</p>
-            </div>
+            
 
 
 
               {/* گرینده  */}
-            <div className='w-full'>
-                <strong className='font-bold font-ShabnamBold'>ارگان دریافت کننده / ترلاسه کوونکی :</strong> 
-                <p className='font-ShabnamLight mt-2'>{letterData.destination}</p>
+            <div className='w-full mt-8'>
+                <strong className=' font-Bolbody text-[16px]'>په ډېر درنښت!</strong> 
+
+                {/*  متن مکتوب*/}
+                <p className='font-Bolbody text-[19px]'>
+                  {letterData.content}
+                </p>
             </div>
           </div>
 
-          {/* متن اصلی مکتوب */}
-          <div className="text-justify text-base leading-loose text-gray-900 whitespace-pre-line px-2">
-            <strong className='font-bold font-ShabnamBold'>توضیحات  / زموږ په اړه : </strong> 
-            <p className='font-ShabnamLight'>
-                {letterData.content}
-            </p>
-          </div>
           
+          
+          {/* فوتر متن تاپه و امضا */}
+          <section className=' text-center absolute w-full bottom-5 left-0'>
+                <p className='font-Bolbody text-[19px]'>په درنښت</p>
+                <h2 className='font-bold font-Bolbody text-[19px]'>د احسان صبور شرکت رئیس</h2>
+          </section>
         </div>
 
         {/* ۳. تصویر پابرگ شرکت */}
-        <div className="absolute bottom-0 left-0 w-full">
+        <div className="absolute bottom-0 left-0 w-full ">
           <img src="/images/2.png" alt="Footer" className="w-full object-contain" />
         </div>
 
